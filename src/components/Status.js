@@ -1,5 +1,5 @@
 function Status({items}) {
-  if(!items.length)return <p><em>Start adding some items to your packing list</em></p>
+  if(!items.length)return <p className="status"><em>Start adding some items to your packing list</em></p>
   const numOfItems = items.length;
   const packed = items.filter(it => it.packed).length;
   const percentage = Math.round(packed/numOfItems*100);

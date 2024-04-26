@@ -8,6 +8,10 @@ function App() {
   function handleAddItem(newItem) {
     setItems((items) => [...items, newItem]);
   }
+  function handleDeleteList() {
+    const confirmation = window.confirm("Are you sure you want to delete all items");
+    if (confirmation) setItems([]);
+  }
   function handleDeleteItem(id) {
     setItems((items) => items.filter((el) => el.id !== id));
   }
@@ -18,7 +22,7 @@ function App() {
     <div className="app">
       <Logo />
       <Form handleAddItem={handleAddItem} />
-      <PackingList items={items} handleDeleteItem={handleDeleteItem} handleToggleItem={handleToggleItem} />
+      <PackingList items={items} handleDeleteItem={handleDeleteItem} handleToggleItem={handleToggleItem} handleDeleteList={handleDeleteList} />
       <Status items={items} />
     </div>
   );
